@@ -1,28 +1,37 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const connectDb = require('./config/db.js');
 require('dotenv').config();
 const { MongoClient } = require('mongodb');
 const ObjectId = require('mongodb').ObjectId;
-
 const port = process.env.PORT || 5000;
 
+// connect database
+connectDb();
+
+// middleware
 app.use(cors());
 app.use(express.json())
 
+/*
 const uri = `mongodb+srv://${process.env.DATABASE_USER}:${process.env.DATABASE_PASS}@cluster0.dn7ou.mongodb.net/
 Smart_Tech_Shop?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+*/
+
 
 async function run() {
     try {
-        await client.connect();
+        /*
+		await client.connect();
         console.log('database connected');
         const database = client.db('Smart_Tech_Shop');
         const productsCollection = database.collection('products');
         const ordersCollection = database.collection('orders');
         const usersCollection = database.collection('users');
         const customerReviewsCollection = database.collection('customerReviews');
+		*/
 
         // Load all products
         app.get('/products', async (req, res) => {
