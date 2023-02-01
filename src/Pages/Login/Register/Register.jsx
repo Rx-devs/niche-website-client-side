@@ -1,12 +1,11 @@
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { MdVisibility,MdVisibilityOff } from 'react-icons/md';
 import { Alert, Button, Container, FormControl, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { NavLink, useHistory, useLocation } from "react-router-dom";
 import useAuth from '../../../Hooks/useAuth';
 import GoogleButton from 'react-google-button'
-import Navigation from '../../Shared/Navigation/Navigation.js';
-import Footer from '../../Shared/Footer/Footer.js';
+import Navigation from '../../Shared/Navigation/Navigation';
+import Footer from '../../Shared/Footer/Footer';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import FormGroup from '@mui/material/FormGroup';
@@ -140,7 +139,7 @@ const Register = () => {
                                                 onMouseDown={handleMouseDownPassword}
                                                 edge="end"
                                             >
-                                                {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                                {values.showPassword ? <MdVisibilityOff /> : <MdVisibility />}
                                             </IconButton>
                                         </InputAdornment>
                                     }

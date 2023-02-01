@@ -1,4 +1,4 @@
-import MenuIcon from '@mui/icons-material/Menu';
+import { MdMenu } from 'react-icons/md';
 import { Button, Typography } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -76,7 +76,7 @@ const Navigation = () => {
                             sx={{ mr: 0}}
                             onClick={()=> setState(true)}
                         >
-                            <MenuIcon/>
+                            <MdMenu/>
                         </IconButton>
 						</Box>
 						<div className={navLogo} style={{ fontSize:'24px',flexGrow: 1, marginLeft:'30px', color: '#FF3E30',fontWeight:'700' }}>

@@ -1,5 +1,5 @@
 import {
-  BrowserRouter as Router, Route, Switch
+  BrowserRouter, Route, Routes
 } from "react-router-dom";
 import './App.css';
 import AuthProvider from "./Context/AuthProvider";
@@ -19,7 +19,7 @@ const theme = createTheme({
     "fontWeightLight": 300,
     "fontWeightRegular": 400,
     "fontWeightMedium": 500
-   },
+  },
   palette: {
     primary: {
       light: '#FF3E30',
@@ -34,42 +34,35 @@ const theme = createTheme({
       contrastText: '#000',
     },
   },
-   
+
 });
 
 function App() {
   return (
-  <ThemeProvider theme={theme}>
-    <div className="App">
-      <AuthProvider>
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Home></Home>
-            </Route>
-            <Route path="/home">
-              <Home></Home>
-            </Route>
-            <Route path="/login">
-              <Login></Login>
-            </Route>
-            <Route path="/register">
-              <Register></Register>
-            </Route>
-            <PrivateRoute path="/exploreProducts">
-              <ExploreProducts></ExploreProducts>
-            </PrivateRoute>
-            <PrivateRoute path="/dashboard">
-              <Dashboard></Dashboard>
-            </PrivateRoute>
-            <PrivateRoute path="/purchaseProduct/:productId">
-              <PurchaseProduct></PurchaseProduct>
-            </PrivateRoute>
-          </Switch>
-        </Router>
-      </AuthProvider>
-    </div>
-	</ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <AuthProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />}>
+              </Route>
+              <Route path="/home" element={<Home />}>
+              </Route>
+              <Route path="/login" element={<Login />}>
+              </Route>
+              <Route path="/register" element={<Register />}>
+              </Route>
+              {/* <Route path={`/exploreProducts`} element={<PrivateRoute><ExploreProducts /></PrivateRoute>}>
+              </Route>
+              <Route path={`/dashboard`} element={<PrivateRoute><Dashboard /></PrivateRoute>}>
+              </Route>
+              <Route path={`/purchaseProduct/:productId`} element={<PrivateRoute><PurchaseProduct /></PrivateRoute>}>
+              </Route> */}
+            </Routes>
+          </BrowserRouter>
+        </AuthProvider>
+      </div>
+    </ThemeProvider>
   );
 }
 

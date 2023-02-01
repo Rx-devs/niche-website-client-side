@@ -2,44 +2,46 @@ import { useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import { makeStyles } from '@mui/styles';
+// import { makeStyles } from '@mui/styles';
 
 const useCustomStyles = () => {
   const theme = useTheme();
 
   // navigation style
-  const useNavStyle = makeStyles({
-    navItem: {
-      color: '#fff',
-      marginRight:'10px',
-      textDecoration: 'none',
-    },
-    navIcon: {
-      [theme.breakpoints.up('sm')]: {
-        display: 'none',
-      }
-    },
-    navItemContainer: {
-      [theme.breakpoints.down('sm')]: {
-        display: 'none',
-      }
-    },
-    navLogo: {
-      [theme.breakpoints.down('sm')]: {
-        textAlign: 'right',
-      }
-    },
-    drawerLink: {
-      textDecoration: 'none',
-      color: '#FF3E30',
-      padding: '20px 0 20px 10px',
-	  fontWeight:'600'
-    },
-    drawerItem: {
-         //   
+  // const useNavStyle = makeStyles({
+    
+  // });
+  const navItem = {
+    color: '#fff',
+    marginRight:'10px',
+    textDecoration: 'none',
+  };
+  const navIcon = {
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
     }
-  });
-  const { navItem, navIcon, navLogo, navItemContainer, drawerLink, drawerItem } = useNavStyle();
+  };
+  const navItemContainer = {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    }
+  };
+  const navLogo = {
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'right',
+    }
+  };
+  const drawerLink = {
+    textDecoration: 'none',
+    color: '#FF3E30',
+    padding: '20px 0 20px 10px',
+  fontWeight:'600'
+  };
+
+  const drawerItem = {
+       //   
+  }
+  // const { navItem, navIcon, navLogo, navItemContainer, drawerLink, drawerItem } = useNavStyle();
 
   // form style
   const formStyle = {

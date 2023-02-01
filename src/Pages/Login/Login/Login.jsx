@@ -1,12 +1,11 @@
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { MdVisibility,MdVisibilityOff } from 'react-icons/md';
 import { Alert, Button, Container, FormControl, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
-import { NavLink, useHistory, useLocation } from "react-router-dom";
+import { NavLink, useHistory, useLocation,useNavigate } from "react-router-dom";
 import useAuth from '../../../Hooks/useAuth';
 import GoogleButton from 'react-google-button'
-import Navigation from '../../Shared/Navigation/Navigation.js';
-import Footer from '../../Shared/Footer/Footer.js';
+import Navigation from '../../Shared/Navigation/Navigation';
+import Footer from '../../Shared/Footer/Footer';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
@@ -17,6 +16,7 @@ const Login = () => {
 	const [progress, setProgress] = React.useState(0);
 	const [buffer, setBuffer] = React.useState(10);
     const location = useLocation();
+    let navigate = useNavigate();
     const history = useHistory();
 	// Linear Progress bar
 	
@@ -124,7 +124,7 @@ const Login = () => {
                                             onMouseDown={handleMouseDownPassword}
                                             edge="end"
                                         >
-                                            {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                            {values.showPassword ? <MdVisibilityOff /> : <MdVisibility />}
                                         </IconButton>
                                     </InputAdornment>
                                 }

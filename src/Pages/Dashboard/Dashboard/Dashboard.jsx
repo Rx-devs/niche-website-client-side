@@ -1,4 +1,4 @@
-import MenuIcon from '@mui/icons-material/Menu';
+import { MdMenu } from 'react-icons/md';
 import { Button, List, ListItem, ListItemText } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -9,16 +9,16 @@ import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
-import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import { Link, Route, matchPath  } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import useCustomStyles from '../../../Hooks/useCustomStyles';
-import AddProduct from '../Admin/AddProduct/AddProduct';
-import MakeAdmin from '../Admin/MakeAdmin/MakeAdmin';
-import ManageAllOrders from '../Admin/ManageAllOrders/ManageAllOrders';
-import ManageProducts from '../Admin/ManageProducts/ManageProducts';
-import MyOrders from '../User/MyOrders/MyOrders/MyOrders';
-import Pay from '../User/Pay/Pay';
-import Review from '../User/Review/Review';
+// import AddProduct from '../Admin/AddProduct/AddProduct';
+// import MakeAdmin from '../Admin/MakeAdmin/MakeAdmin';
+// import ManageAllOrders from '../Admin/ManageAllOrders/ManageAllOrders';
+// import ManageProducts from '../Admin/ManageProducts/ManageProducts';
+// import MyOrders from '../User/MyOrders/MyOrders/MyOrders';
+// import Pay from '../User/Pay/Pay';
+// import Review from '../User/Review/Review';
 
 // dashboard drawer
 const drawerWidth = 200;
@@ -27,7 +27,7 @@ function Dashboard(props) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const { logOut, admin } = useAuth();
     const { drawerItem,drawerLink } = useCustomStyles();
-    let { path, url } = useRouteMatch();
+    let { path, url } = matchPath();
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -129,7 +129,7 @@ function Dashboard(props) {
                         onClick={handleDrawerToggle}
                         sx={{ mr: 2, display: { sm: 'none' } }}
                     >
-                        <MenuIcon />
+                        <MdMenu />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                         Dashboard
@@ -173,7 +173,7 @@ function Dashboard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                {!admin && <Switch>
+                {/* {!admin && <Switch>
                     <Route exact path={path}>
                         <MyOrders></MyOrders>
                     </Route>
@@ -197,7 +197,7 @@ function Dashboard(props) {
                     <Route path={`${path}/manageProducts`}>
                         <ManageProducts></ManageProducts>
                     </Route>
-                </Switch>}
+                </Switch>} */}
             </Box>
         </Box>
     );
